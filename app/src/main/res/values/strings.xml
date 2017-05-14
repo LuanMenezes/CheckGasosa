@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">CheckGasosa</string>
+    <string-array name="lista_posto">
+        <item>Ipiranga</item>
+        <item>Petrobras</item>
+        <item>Shell</item>
+        <item>Texaco</item>
+        <item>Outros</item>
+    </string-array>
 </resources>

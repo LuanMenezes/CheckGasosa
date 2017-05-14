@@ -4,7 +4,9 @@ import android.app.DialogFragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.example.luan.checkgasosa.entity.Abastecimento.Abastecimento;
 import com.example.luan.checkgasosa.entity.Abastecimento.AbastecimentoDao;
@@ -25,6 +27,19 @@ public class CadastrarActivity extends FragmentActivity {
         etKmAtual = (EditText) findViewById(R.id.etKmAtual);
         etData = (EditText) findViewById(R.id.etData);
         etLitros = (EditText) findViewById(R.id.etLitros);
+
+
+        /**
+         * TENTATIVA DE CRIAR UM SPINENR PARA LISTAR OS POSTOS
+         */
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        // Criando uma ArrayAdapter usando o array de criado no strings.xml e um spinner layout default
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.lista_posto, android.R.layout.simple_spinner_item);
+        // Especificando o layout para ser usando quando carregar a lista de opções
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Aplicando o adapter ao spinner
+        spinner.setAdapter(adapter);
+
     }
 
     public void showDatePickerDialog(View v) {
