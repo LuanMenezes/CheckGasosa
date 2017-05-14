@@ -12,13 +12,13 @@ public class Abastecimento {
 
     private double litros;
 
-//    private Posto posto;
+    private String posto;
 
-    public Abastecimento(double kmAtual, Date data, double litros/**, Posto posto*/) {
+    public Abastecimento(double kmAtual, Date data, double litros, String posto) {
         this.kmAtual = kmAtual;
         this.data = data;
         this.litros = litros;
-        //this.posto = posto;
+        this.posto = posto;
     }
 
     public double getKmAtual() {
@@ -31,6 +31,10 @@ public class Abastecimento {
 
     public double getLitros() {
         return litros;
+    }
+
+    public String getPosto() {
+        return posto;
     }
 
 //    public Posto getPosto() {

@@ -20,21 +20,38 @@ public class VisualizarActivity extends AppCompatActivity {
          * Aqui agora ira popular o objeto para ser exibido na tela de visualização
          */
         tvKm = (TextView) findViewById(R.id.tvKm);
-        tvKm.setText( getIntent().getStringExtra("km") );
+        tvKm.setText( "Km: " + getIntent().getStringExtra("km") );
 
         tvData = (TextView) findViewById(R.id.tvData);
-        tvData.setText( getIntent().getStringExtra("data") );
+        tvData.setText( "Data: " + getIntent().getStringExtra("data") );
 
         tvLitros = (TextView) findViewById(R.id.tvLitros);
-        tvLitros.setText( getIntent().getStringExtra("litros") );
+        tvLitros.setText( "Litros: " + getIntent().getStringExtra("litros") );
 
-        /** Aqui irá colocar a imagem referente a logo do posto
+        /**
+         *  Aqui irá colocar a imagem referente a logo do posto
          *  Falta deixar de forma dinamica, verificar se vai salvar a string no DAO
          *  ou se irá salvar o INT do Drawable e chamar aqui pela int
          * */
         ivLogo = (ImageView) findViewById(R.id.ivLogo);
-        ivLogo.setImageResource(R.drawable.logo_petrobras);
-//        ivLogo.setImageDrawable(INT REFERENTE A LOGO); /* SERA UM INT CASO SEJA DESSA FORMA*/
+        String posto = getIntent().getStringExtra("posto");
+        switch (posto) {
+            case "Petrobras":
+                ivLogo.setImageResource(R.drawable.logo_petrobras);
+                break;
+            case "Ipirange":
+                ivLogo.setImageResource(R.drawable.logo_ipiranga);
+                break;
+            case "Texaco":
+                ivLogo.setImageResource(R.drawable.logo_texaco);
+                break;
+            case "Shell":
+                ivLogo.setImageResource(R.drawable.logo_shell);
+                break;
+            default:
+                ivLogo.setImageResource(R.drawable.logo_outros);
+                break;
+        }
 
     }
 

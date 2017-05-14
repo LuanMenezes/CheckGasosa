@@ -19,6 +19,7 @@ public class CadastrarActivity extends FragmentActivity {
     private EditText etKmAtual;
     private EditText etData;
     private EditText etLitros;
+    private Spinner spPostos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,16 +31,15 @@ public class CadastrarActivity extends FragmentActivity {
 
 
         /**
-         * TENTATIVA DE CRIAR UM SPINENR PARA LISTAR OS POSTOS
+         * Aqui faz a fuleragem do spinner para listar os postos cadastrados
          */
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        spPostos = (Spinner) findViewById(R.id.spPostos);
         // Criando uma ArrayAdapter usando o array de criado no strings.xml e um spinner layout default
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.lista_posto, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.lista_posto, android.R.layout.simple_spinner_item);
         // Especificando o layout para ser usando quando carregar a lista de opções
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Aplicando o adapter ao spinner
-        spinner.setAdapter(adapter);
-
+        spPostos.setAdapter(adapter);
     }
 
     public void showDatePickerDialog(View v) {
@@ -52,8 +52,11 @@ public class CadastrarActivity extends FragmentActivity {
         double kmAtual = Double.parseDouble(etKmAtual.getText().toString());
         double litros = Double.parseDouble(etLitros.getText().toString());
         Date data = new Date(etData.getText().toString());
-        Abastecimento abastecimento = new Abastecimento(kmAtual, data, litros);
+        String posto = spPostos.getSelectedItem().toString();
+
+        Abastecimento abastecimento = new Abastecimento(kmAtual, data, litros, posto);
         abastecimentoDao.save(abastecimento);
+
         finish();
     }
 }
