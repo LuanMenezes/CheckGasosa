@@ -32,14 +32,14 @@ public class VisualizarActivity extends AppCompatActivity {
          *  Aqui irá colocar a imagem referente a logo do posto
          *  Falta deixar de forma dinamica, verificar se vai salvar a string no DAO
          *  ou se irá salvar o INT do Drawable e chamar aqui pela int
-         * */
+         */
         ivLogo = (ImageView) findViewById(R.id.ivLogo);
         String posto = getIntent().getStringExtra("posto");
         switch (posto) {
             case "Petrobras":
                 ivLogo.setImageResource(R.drawable.logo_petrobras);
                 break;
-            case "Ipirange":
+            case "Ipiranga":
                 ivLogo.setImageResource(R.drawable.logo_ipiranga);
                 break;
             case "Texaco":
