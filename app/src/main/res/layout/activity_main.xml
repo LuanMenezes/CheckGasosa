@@ -52,8 +52,10 @@
         android:layout_height="wrap_content"
         android:onClick="visualizar"
         android:text="Visualizar"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <Button
         android:id="@+id/button3"
@@ -63,6 +65,7 @@
         android:onClick="cadastrar"
         android:text="Cadastrar"
         app:layout_constraintLeft_toRightOf="@+id/button2"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp" />
 
 </android.support.constraint.ConstraintLayout>

@@ -5,6 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.luan.checkgasosa.entity.Abastecimento.Abastecimento;
+import com.example.luan.checkgasosa.entity.Abastecimento.AbastecimentoDao;
+
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -15,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
 
     /** Chamada para a view de visualizacao dos registros*/
     public void visualizar(View v){
+        // Todos os abastecimentos
+        List<Abastecimento> abastecimentos = AbastecimentoDao.getInstancia().getAll();
         Intent intent = new Intent(this, VisualizarActivity.class);
         startActivity(intent);
     }
