@@ -29,7 +29,7 @@ public class VisualizarActivity extends AppCompatActivity {
         rvAbastecimento.setLayoutManager(new LinearLayoutManager(this.getApplicationContext()));
         abastecimentoAdapter = new AbastecimentoAdapter();
 //        abastecimentoAdapter.setListaAbastecimentos(Abastecimento.listaAbastecimento);
-        abastecimentoAdapter.setListaAbastecimentos(Abastecimento.listaAbastecimento);
+//        abastecimentoAdapter.setListaAbastecimentos(Abastecimento.listaAbastecimento);
         rvAbastecimento.setAdapter(abastecimentoAdapter);
     }
 
