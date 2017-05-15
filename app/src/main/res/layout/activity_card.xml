@@ -14,7 +14,7 @@
         android:id="@+id/tvData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="24dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:text="Data:"
@@ -29,7 +29,7 @@
         android:id="@+id/tvKm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="24dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:text="Km:"
@@ -45,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="24dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:text="Litros:"
@@ -56,7 +56,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/ivLogo"
         app:layout_constraintTop_toBottomOf="@+id/tvKm"
-        app:layout_constraintVertical_bias="0.142" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/ivLogo"

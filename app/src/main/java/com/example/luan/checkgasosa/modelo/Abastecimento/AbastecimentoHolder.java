@@ -69,7 +69,7 @@ public class AbastecimentoHolder extends RecyclerView.ViewHolder implements View
         intent.putExtra("data", objAbastecimento.getData());
         intent.putExtra("posto", objAbastecimento.getPosto());
 
-        context.startActivity(intent);
+//        context.startActivity(intent);
     }
 }
 
