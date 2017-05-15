@@ -41,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
             double totalKmPercorridos = ultimoAbastecimento.getKmAtual() - primeiroAbastecimento.getKmAtual();
 
             double litrosAbastecidos = 0;
-            for (int i = 0; abastecimentos.size() > i; i++) {
+            //Somando a size total com +1 pois o último não é utilizado
+            for (int i = 0; (abastecimentos.size() - 1) > i; i++) {
                 litrosAbastecidos += abastecimentos.get(i).getLitros();
             }
 
