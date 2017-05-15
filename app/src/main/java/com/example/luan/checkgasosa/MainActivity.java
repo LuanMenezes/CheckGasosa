@@ -25,11 +25,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        abastecimentoDao.save(new Abastecimento(900, new Date("14/5/2017"), 32, "Texaco"));
-        abastecimentoDao.save(new Abastecimento(910, new Date("15/5/2017"), 31, "Ipiranga"));
-        abastecimentoDao.save(new Abastecimento(920, new Date("16/5/2017"), 30, "Outros"));
-        abastecimentoDao.save(new Abastecimento(930, new Date("17/5/2017"), 34, "Shell"));
+        Abastecimento.listaAbastecimento = new ArrayList<>();
+        Abastecimento.listaAbastecimento.add(new Abastecimento(900, new Date("14/5/2017"), 32, "Texaco"));
+        Abastecimento.listaAbastecimento.add(new Abastecimento(910, new Date("15/5/2017"), 31, "Ipiranga"));
+        Abastecimento.listaAbastecimento.add(new Abastecimento(920, new Date("16/5/2017"), 30, "Outros"));
+        Abastecimento.listaAbastecimento.add(new Abastecimento(930, new Date("17/5/2017"), 34, "Shell"));
     }
 
     /** Chamada para a view de visualizacao dos registros*/
