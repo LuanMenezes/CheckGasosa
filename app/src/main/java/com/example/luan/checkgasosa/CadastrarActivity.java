@@ -3,6 +3,7 @@ package com.example.luan.checkgasosa;
 import android.app.DialogFragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -29,7 +30,6 @@ public class CadastrarActivity extends FragmentActivity {
         etData = (EditText) findViewById(R.id.etData);
         etLitros = (EditText) findViewById(R.id.etLitros);
 
-
         /**
          * Aqui faz a fuleragem do spinner para listar os postos cadastrados
          */
@@ -53,7 +53,10 @@ public class CadastrarActivity extends FragmentActivity {
         double litros = Double.parseDouble(etLitros.getText().toString());
         Date data = new Date(etData.getText().toString());
         String posto = spPostos.getSelectedItem().toString();
-
+        Log.d("DADOS KM:",etKmAtual.getText().toString());
+        Log.d("DADOS LITROS:",etLitros.getText().toString());
+        Log.d("DADOS DATA:",etData.getText().toString());
+        Log.d("DADOS POSTO:",spPostos.getSelectedItem().toString());
         Abastecimento abastecimento = new Abastecimento(kmAtual, data, litros, posto);
         abastecimentoDao.save(abastecimento);
 

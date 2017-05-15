@@ -1,10 +1,11 @@
 package com.example.luan.checkgasosa.entity.Abastecimento;
 
-import com.example.luan.checkgasosa.entity.Posto.Posto;
-
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Abastecimento {
+
+    public static ArrayList<Abastecimento> listaAbastecimento;
 
     private double kmAtual;
 
