@@ -7,9 +7,8 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.luan.checkgasosa.entity.Abastecimento.Abastecimento;
-import com.example.luan.checkgasosa.entity.Abastecimento.AbastecimentoAdapter;
-import com.example.luan.checkgasosa.entity.Abastecimento.AbastecimentoDao;
+import com.example.luan.checkgasosa.modelo.Abastecimento.AbastecimentoAdapter;
+import com.example.luan.checkgasosa.modelo.Abastecimento.AbastecimentoDao;
 
 public class VisualizarActivity extends AppCompatActivity {
     private TextView tvKm;

@@ -1,4 +1,4 @@
-package com.example.luan.checkgasosa.entity.Posto;
+package com.example.luan.checkgasosa.modelo.Posto;
 
 import java.util.ArrayList;
 import java.util.List;

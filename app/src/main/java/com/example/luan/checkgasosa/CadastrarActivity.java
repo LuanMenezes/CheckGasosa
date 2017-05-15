@@ -9,8 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.example.luan.checkgasosa.entity.Abastecimento.Abastecimento;
-import com.example.luan.checkgasosa.entity.Abastecimento.AbastecimentoDao;
+import com.example.luan.checkgasosa.modelo.Abastecimento.Abastecimento;
+import com.example.luan.checkgasosa.modelo.Abastecimento.AbastecimentoDao;
 
 import java.util.Date;
 

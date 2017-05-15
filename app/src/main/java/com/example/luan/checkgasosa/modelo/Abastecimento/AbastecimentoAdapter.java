@@ -1,4 +1,4 @@
-package com.example.luan.checkgasosa.entity.Abastecimento;
+package com.example.luan.checkgasosa.modelo.Abastecimento;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

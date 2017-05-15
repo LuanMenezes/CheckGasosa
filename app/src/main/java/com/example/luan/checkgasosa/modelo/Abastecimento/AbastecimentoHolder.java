@@ -1,17 +1,15 @@
-package com.example.luan.checkgasosa.entity.Abastecimento;
+package com.example.luan.checkgasosa.modelo.Abastecimento;
 
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.luan.checkgasosa.R;
 import com.example.luan.checkgasosa.VisualizarActivity;
-import com.example.luan.checkgasosa.entity.Abastecimento.Abastecimento;
 
 public class AbastecimentoHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     private final Context context;
@@ -39,7 +37,7 @@ public class AbastecimentoHolder extends RecyclerView.ViewHolder implements View
     public void renderizaNovoAbastecimento(Abastecimento abastecimento){
         this.kmAtual.setText( "KM: " + String.valueOf( abastecimento.getKmAtual() ) );
         this.litros.setText( "Litros: " + String.valueOf( abastecimento.getLitros() ) );
-        this.data.setText( "Data: " + String.valueOf( abastecimento.getData() ) );
+        this.data.setText( "Data: " + DateFormat.format("dd/MM/yyyy", abastecimento.getData()) );
 
         String postoString =  abastecimento.getPosto();
         switch (postoString) {

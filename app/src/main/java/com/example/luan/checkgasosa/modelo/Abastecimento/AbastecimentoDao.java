@@ -1,4 +1,4 @@
-package com.example.luan.checkgasosa.entity.Abastecimento;
+package com.example.luan.checkgasosa.modelo.Abastecimento;
 
 import java.util.ArrayList;
 import java.util.List;
