@@ -10,16 +10,8 @@ import com.example.luan.checkgasosa.R;
 import java.util.List;
 
 public class AbastecimentoAdapter extends RecyclerView.Adapter<AbastecimentoHolder>{
-    private List<Abastecimento> listaAbastecimentos;
-
-    public void setListaAbastecimentos(List<Abastecimento> lista) {
-        this.listaAbastecimentos = lista;
-    }
-
-
-    public List<Abastecimento> getListaAbastecimentos(){
-        return this.listaAbastecimentos;
-    }
+    private AbastecimentoDao abastecimentoDao = AbastecimentoDao.getInstancia();
+    private List<Abastecimento> listaAbastecimentos = abastecimentoDao.getAll();
 
     public AbastecimentoAdapter() {
     }
@@ -33,7 +25,7 @@ public class AbastecimentoAdapter extends RecyclerView.Adapter<AbastecimentoHold
 
     @Override
     public void onBindViewHolder(AbastecimentoHolder holder, int position) {
-        Abastecimento atual = listaAbastecimentos.get(position);
+        Abastecimento atual = abastecimentoDao.get(position);
         holder.renderizaNovoAbastecimento(atual);
     }
 
