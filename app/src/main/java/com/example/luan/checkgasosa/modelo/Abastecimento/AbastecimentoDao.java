@@ -4,10 +4,12 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.example.luan.checkgasosa.armazenamento.BdHelper;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class AbastecimentoDao {
@@ -23,21 +25,6 @@ public class AbastecimentoDao {
             instancia = new AbastecimentoDao();
         }
         return instancia;
-    }
-
-    public void save(Context context, Abastecimento abastecimento) {
-        bdHelper = new BdHelper(context);
-
-        SQLiteDatabase bd = bdHelper.getWritableDatabase();
-
-        // Create a new map of values, where column names are the keys
-        ContentValues values = new ContentValues();
-        values.put("kmAtual", abastecimento.getKmAtual());
-        values.put("data", abastecimento.getData().toString());
-        values.put("litros", abastecimento.getLitros());
-        values.put("posto", abastecimento.getPosto());
-
-        long newRowId = bd.insert("abastecimento", null, values);
     }
 
     public Abastecimento get(Context context, int id) {
@@ -59,7 +46,43 @@ public class AbastecimentoDao {
         );
 
         c.moveToFirst();
+        db.close();
         // Retornar uma instancia de Abastecimento
+        Abastecimento abastecimento = null;
+        try{
+            int kmAtualIndex = c.getColumnIndexOrThrow("kmAtual");
+            double kmAtual = c.getDouble(kmAtualIndex);
+
+            int dataIndex = c.getColumnIndexOrThrow("data");
+            String data = c.getString(dataIndex);
+            Date newDate = new Date(data);
+
+            int litrosIndex = c.getColumnIndexOrThrow("litros");
+            double litros = c.getDouble(litrosIndex);
+
+            int postoIndex = c.getColumnIndexOrThrow("posto");
+            String posto = c.getString(postoIndex);
+
+            abastecimento = new Abastecimento(kmAtual, newDate, litros, posto);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return abastecimento;
+    }
+
+    public void save(Context context, Abastecimento abastecimento) {
+        bdHelper = new BdHelper(context);
+
+        SQLiteDatabase bd = bdHelper.getWritableDatabase();
+
+        // Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put("kmAtual", abastecimento.getKmAtual());
+        values.put("data", abastecimento.getData().toString());
+        values.put("litros", abastecimento.getLitros());
+        values.put("posto", abastecimento.getPosto());
+
+        long newRowId = bd.insert("abastecimento", null, values);
     }
 
     public List<Abastecimento> getAll() {

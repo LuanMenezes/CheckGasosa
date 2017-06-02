@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
         double autonomia = 0;
 
         if (abastecimentos.size() > 0) {
-            Abastecimento ultimoAbastecimento = abastecimentoDao.get((abastecimentos.size() - 1));
-            Abastecimento primeiroAbastecimento = abastecimentoDao.get(0);
+            Abastecimento ultimoAbastecimento = abastecimentoDao.get(this.getApplicationContext(),(abastecimentos.size() - 1));
+            Abastecimento primeiroAbastecimento = abastecimentoDao.get(this.getApplicationContext(), 0);
             Log.d("DADOS KM ULTIMO ABASTE:", String.valueOf(ultimoAbastecimento.getKmAtual()));
             Log.d("DADOS KM PRIMEIRO ABAS:", String.valueOf(primeiroAbastecimento.getKmAtual()));
             double totalKmPercorridos = ultimoAbastecimento.getKmAtual() - primeiroAbastecimento.getKmAtual();

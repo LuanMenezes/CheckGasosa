@@ -55,7 +55,7 @@ public class CadastrarActivity extends FragmentActivity {
     @RequiresApi(api = Build.VERSION_CODES.N)
     public void finalizarCadastro(View v) {
 
-        if (!dadosValidos()) {
+        if (!dadosValidos(v)) {
             return;
         }
         double kmAtual = Double.parseDouble(etKmAtual.getText().toString());
@@ -67,13 +67,13 @@ public class CadastrarActivity extends FragmentActivity {
         Log.d("DADOS DATA:",etData.getText().toString());
         Log.d("DADOS POSTO:",spPostos.getSelectedItem().toString());
         Abastecimento abastecimento = new Abastecimento(kmAtual, data, litros, posto);
-        abastecimentoDao.save(abastecimento);
+        abastecimentoDao.save(v.getContext(), abastecimento);
 
         finish();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    private boolean dadosValidos() {
+    private boolean dadosValidos(View v) {
 
         int violations = 0;
         if (etKmAtual.getText().toString().trim().length() <= 0) {
@@ -143,7 +143,7 @@ public class CadastrarActivity extends FragmentActivity {
         }
 
         if (abastecimentoDao.getAll().size() > 0) {
-            Abastecimento ultimoAbastecimento = abastecimentoDao.get((abastecimentoDao.getAll().size()) - 1);
+            Abastecimento ultimoAbastecimento = abastecimentoDao.get(v.getContext(),(abastecimentoDao.getAll().size()) - 1);
             if (ultimoAbastecimento.getKmAtual() > Double.parseDouble(etKmAtual.getText().toString())) {
                 etKmAtual.setError("A Quilometragem atual não pode ser menor do que a última informada (" + String.format("%.1f", ultimoAbastecimento.getKmAtual()) + ")");
                 Log.d("KM ATUAL MENOR ANTERIO:", etKmAtual.getText().toString());
