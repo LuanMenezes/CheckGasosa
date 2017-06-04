@@ -40,23 +40,7 @@ public class AbastecimentoHolder extends RecyclerView.ViewHolder implements View
         this.data.setText( "Data: " + DateFormat.format("dd/MM/yyyy", abastecimento.getData()) );
 
         String postoString =  abastecimento.getPosto();
-        switch (postoString) {
-            case "Petrobras":
-                this.posto.setImageResource(R.drawable.logo_petrobras);
-                break;
-            case "Ipiranga":
-                this.posto.setImageResource(R.drawable.logo_ipiranga);
-                break;
-            case "Texaco":
-                this.posto.setImageResource(R.drawable.logo_texaco);
-                break;
-            case "Shell":
-                this.posto.setImageResource(R.drawable.logo_shell);
-                break;
-            default:
-                this.posto.setImageResource(R.drawable.logo_outros);
-                break;
-        }
+        this.posto.setImageResource(abastecimento.getPostoInt(postoString));
 
         objAbastecimento = abastecimento;
     }

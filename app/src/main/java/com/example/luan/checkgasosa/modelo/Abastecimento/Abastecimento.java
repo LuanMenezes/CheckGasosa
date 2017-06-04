@@ -1,5 +1,9 @@
 package com.example.luan.checkgasosa.modelo.Abastecimento;
 
+import android.widget.ImageView;
+
+import com.example.luan.checkgasosa.R;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -38,7 +42,26 @@ public class Abastecimento {
         return posto;
     }
 
-//    public Posto getPosto() {
-//        return posto;
-//    }
+    public int getPostoInt(String posto){
+        int ivPosto;
+        switch (posto) {
+            case "Petrobras":
+                ivPosto = R.drawable.logo_petrobras;
+                break;
+            case "Ipiranga":
+                ivPosto = R.drawable.logo_ipiranga;
+                break;
+            case "Texaco":
+                ivPosto = R.drawable.logo_texaco;
+                break;
+            case "Shell":
+                ivPosto = R.drawable.logo_shell;
+                break;
+            default:
+                ivPosto = R.drawable.logo_outros;
+                break;
+        }
+
+        return ivPosto;
+    }
 }
