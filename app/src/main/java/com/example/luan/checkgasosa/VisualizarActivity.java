@@ -50,7 +50,7 @@ public class VisualizarActivity extends AppCompatActivity {
     public void onAbastecimentoSelected(Abastecimento abastecimento) {
         DetailFragment detail = new DetailFragment();
         Bundle bundle = new Bundle();
-        bundle.putSerializable("abastecimento", abastecimento); // Mudar para Serializable
+        bundle.putSerializable("abastecimento", abastecimento);
         detail.setArguments(bundle);
 
         FragmentTransaction transaction =  getSupportFragmentManager().beginTransaction();

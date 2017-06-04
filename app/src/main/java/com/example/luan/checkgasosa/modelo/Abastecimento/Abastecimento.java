@@ -4,10 +4,11 @@ import android.widget.ImageView;
 
 import com.example.luan.checkgasosa.R;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Abastecimento {
+public class Abastecimento implements Serializable {
 
     public static ArrayList<Abastecimento> listaAbastecimento;
 
