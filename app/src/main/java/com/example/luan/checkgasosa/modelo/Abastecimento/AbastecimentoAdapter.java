@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 
 import com.example.luan.checkgasosa.R;
 
-import java.security.AccessController;
 import java.util.List;
 
 public class AbastecimentoAdapter extends RecyclerView.Adapter<AbastecimentoHolder>{
@@ -21,7 +20,7 @@ public class AbastecimentoAdapter extends RecyclerView.Adapter<AbastecimentoHold
 
     @Override
     public AbastecimentoHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_card, null);
+        View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.holder_card, null);
         AbastecimentoHolder rcv = new AbastecimentoHolder(layoutView);
         context = parent.getContext();
         return rcv;

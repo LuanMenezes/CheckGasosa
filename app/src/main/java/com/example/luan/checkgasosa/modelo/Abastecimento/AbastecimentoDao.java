@@ -47,7 +47,7 @@ public class AbastecimentoDao {
 
         c.moveToFirst();
         db.close();
-        // Retornar uma instancia de Abastecimento
+
         Abastecimento abastecimento = null;
         try{
             int kmAtualIndex = c.getColumnIndexOrThrow("kmAtual");
@@ -62,11 +62,14 @@ public class AbastecimentoDao {
 
             int postoIndex = c.getColumnIndexOrThrow("posto");
             String posto = c.getString(postoIndex);
-
+            Log.d("POSTO",posto);
             abastecimento = new Abastecimento(kmAtual, newDate, litros, posto);
         } catch (Exception e) {
             e.printStackTrace();
         }
+        Log.d("TESTE001", "DAO Abastecimenbto");
+
+        // Retornar uma instancia de Abastecimento
         return abastecimento;
     }
 
