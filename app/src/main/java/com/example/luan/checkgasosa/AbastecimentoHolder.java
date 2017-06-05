@@ -1,4 +1,4 @@
-package com.example.luan.checkgasosa.modelo.Abastecimento;
+package com.example.luan.checkgasosa;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.example.luan.checkgasosa.ListFragment;
 import com.example.luan.checkgasosa.R;
 import com.example.luan.checkgasosa.VisualizarActivity;
+import com.example.luan.checkgasosa.modelo.Abastecimento.Abastecimento;
 
 public class AbastecimentoHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 

@@ -4,16 +4,11 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.text.format.DateFormat;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.luan.checkgasosa.modelo.Abastecimento.Abastecimento;
-import com.example.luan.checkgasosa.modelo.Abastecimento.AbastecimentoAdapter;
 import com.example.luan.checkgasosa.modelo.Abastecimento.AbastecimentoDao;
 
 public class VisualizarActivity extends AppCompatActivity implements ListFragment.OnItemSelectedListener {

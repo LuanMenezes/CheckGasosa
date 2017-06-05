@@ -1,17 +1,12 @@
-package com.example.luan.checkgasosa.modelo.Abastecimento;
+package com.example.luan.checkgasosa;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.luan.checkgasosa.ListFragment;
-import com.example.luan.checkgasosa.R;
-import com.example.luan.checkgasosa.VisualizarActivity;
-
-import java.util.List;
+import com.example.luan.checkgasosa.modelo.Abastecimento.AbastecimentoDao;
 
 public class AbastecimentoAdapter extends RecyclerView.Adapter{
 

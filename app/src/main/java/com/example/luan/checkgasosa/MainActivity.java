@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.luan.checkgasosa.modelo.Abastecimento.Abastecimento;
-import com.example.luan.checkgasosa.modelo.Abastecimento.AbastecimentoAdapter;
 import com.example.luan.checkgasosa.modelo.Abastecimento.AbastecimentoDao;
 
 import java.util.List;

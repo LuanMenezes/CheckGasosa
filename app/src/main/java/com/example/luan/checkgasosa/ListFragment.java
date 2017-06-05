@@ -10,10 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.luan.checkgasosa.modelo.Abastecimento.Abastecimento;
-import com.example.luan.checkgasosa.modelo.Abastecimento.AbastecimentoAdapter;
 import com.example.luan.checkgasosa.modelo.Abastecimento.AbastecimentoDao;
-
-import java.util.List;
 
 public class ListFragment extends Fragment {
 
