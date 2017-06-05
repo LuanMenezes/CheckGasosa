@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,7 +16,7 @@ import com.example.luan.checkgasosa.modelo.Abastecimento.Abastecimento;
 import com.example.luan.checkgasosa.modelo.Abastecimento.AbastecimentoAdapter;
 import com.example.luan.checkgasosa.modelo.Abastecimento.AbastecimentoDao;
 
-public class VisualizarActivity extends AppCompatActivity {
+public class VisualizarActivity extends AppCompatActivity implements ListFragment.OnItemSelectedListener {
     private TextView tvKm;
     private TextView tvData;
     private TextView tvLitros;
@@ -29,6 +31,7 @@ public class VisualizarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list);
 
         ListFragment list = new ListFragment();
+
         FragmentTransaction transaction =  getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.flFragmento1, list);
 
@@ -38,12 +41,6 @@ public class VisualizarActivity extends AppCompatActivity {
         }
 
         transaction.commit();
-
-//        RecyclerView rvAbastecimento = (RecyclerView)findViewById(R.id.rvAbastecimento);
-//        rvAbastecimento.setLayoutManager(new LinearLayoutManager(this.getApplicationContext()));
-//        abastecimentoAdapter = new AbastecimentoAdapter();
-//        abastecimentoAdapter.setListaAbastecimentos(Abastecimento.listaAbastecimento);
-//        rvAbastecimento.setAdapter(abastecimentoAdapter);
     }
 
     public void onAbastecimentoSelected(Abastecimento abastecimento) {
@@ -61,7 +58,6 @@ public class VisualizarActivity extends AppCompatActivity {
         }
         transaction.commit();
     }
-
 
     public void voltarParaMain(View v) {
         finish();

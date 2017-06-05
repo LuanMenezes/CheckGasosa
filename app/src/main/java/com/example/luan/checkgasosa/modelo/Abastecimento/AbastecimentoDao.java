@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class AbastecimentoDao {
 
@@ -58,8 +59,9 @@ public class AbastecimentoDao {
             int dataIndex = c.getColumnIndexOrThrow("data");
             String data = c.getString(dataIndex);
             ParsePosition pos = new ParsePosition(0);
-            SimpleDateFormat simpledateformat = new SimpleDateFormat("EEE MMM d HH:mm:ss zz yyyy");
+            SimpleDateFormat simpledateformat = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy", Locale.US);
             Date newDate = simpledateformat.parse(data, pos);
+            Log.d("NEWDATA GET 1", String.valueOf(newDate));
 
             int litrosIndex = c.getColumnIndexOrThrow("litros");
             double litros = c.getDouble(litrosIndex);
@@ -106,11 +108,9 @@ public class AbastecimentoDao {
             try{
                 int kmAtualIndex = c.getColumnIndexOrThrow("kmAtual");
                 double kmAtual = c.getDouble(kmAtualIndex);
-                Log.d("ABSTDAO GET ALL kmAtual", String.valueOf(kmAtual));
 
                 int dataIndex = c.getColumnIndexOrThrow("data");
                 String data = c.getString(dataIndex);
-                Log.d("ABSTDAO GET ALL DATA: ", data);
                 ParsePosition pos = new ParsePosition(0);
                 SimpleDateFormat simpledateformat = new SimpleDateFormat("EEE MMM d HH:mm:ss zz yyyy");
                 Date newDate = simpledateformat.parse(data, pos);
