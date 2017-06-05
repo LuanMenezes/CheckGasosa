@@ -8,6 +8,8 @@ import android.util.Log;
 
 import com.example.luan.checkgasosa.armazenamento.BdHelper;
 
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -30,12 +32,12 @@ public class AbastecimentoDao {
     public Abastecimento get(Context context, int id) {
         BdHelper bdHelper = new BdHelper(context);
 
-        SQLiteDatabase db = bdHelper.getReadableDatabase();
+        SQLiteDatabase bd = bdHelper.getReadableDatabase();
 
         String where = "id " + " = ?";
         String[] valoresWhere = {  String.valueOf(id) };
 
-        Cursor c = db.query(
+        Cursor c = bd.query(
                 "abastecimento",                        // Tabela
                 null,                                   // Colunas para seleção
                 where,                                  // colunas WHERE
@@ -46,7 +48,7 @@ public class AbastecimentoDao {
         );
 
         c.moveToFirst();
-        db.close();
+        bd.close();
 
         Abastecimento abastecimento = null;
         try{
@@ -55,19 +57,19 @@ public class AbastecimentoDao {
 
             int dataIndex = c.getColumnIndexOrThrow("data");
             String data = c.getString(dataIndex);
-            Date newDate = new Date(data);
+            ParsePosition pos = new ParsePosition(0);
+            SimpleDateFormat simpledateformat = new SimpleDateFormat("EEE MMM d HH:mm:ss zz yyyy");
+            Date newDate = simpledateformat.parse(data, pos);
 
             int litrosIndex = c.getColumnIndexOrThrow("litros");
             double litros = c.getDouble(litrosIndex);
 
             int postoIndex = c.getColumnIndexOrThrow("posto");
             String posto = c.getString(postoIndex);
-            Log.d("POSTO",posto);
             abastecimento = new Abastecimento(kmAtual, newDate, litros, posto);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Log.d("TESTE001", "DAO Abastecimenbto");
 
         // Retornar uma instancia de Abastecimento
         return abastecimento;
@@ -88,8 +90,47 @@ public class AbastecimentoDao {
         long newRowId = bd.insert("abastecimento", null, values);
     }
 
-    public List<Abastecimento> getAll() {
-        return abastecimentoList;
+    public List<Abastecimento> getAll(Context context) {
+        bdHelper = new BdHelper(context);
+        SQLiteDatabase bd = bdHelper.getReadableDatabase();
+
+        ArrayList<Abastecimento> abastecimentos = new ArrayList<Abastecimento>();
+
+        Cursor c = bd.rawQuery("SELECT * from abastecimento", null);
+
+        c.moveToFirst();
+        bd.close();
+
+        do {
+            Abastecimento abastecimento = null;
+            try{
+                int kmAtualIndex = c.getColumnIndexOrThrow("kmAtual");
+                double kmAtual = c.getDouble(kmAtualIndex);
+                Log.d("ABSTDAO GET ALL kmAtual", String.valueOf(kmAtual));
+
+                int dataIndex = c.getColumnIndexOrThrow("data");
+                String data = c.getString(dataIndex);
+                Log.d("ABSTDAO GET ALL DATA: ", data);
+                ParsePosition pos = new ParsePosition(0);
+                SimpleDateFormat simpledateformat = new SimpleDateFormat("EEE MMM d HH:mm:ss zz yyyy");
+                Date newDate = simpledateformat.parse(data, pos);
+
+                int litrosIndex = c.getColumnIndexOrThrow("litros");
+                double litros = c.getDouble(litrosIndex);
+
+                int postoIndex = c.getColumnIndexOrThrow("posto");
+                String posto = c.getString(postoIndex);
+                abastecimento = new Abastecimento(kmAtual, newDate, litros, posto);
+
+                abastecimentos.add(abastecimento);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } while (c.moveToNext());
+
+        c.close();
+
+        return abastecimentos;
     }
 
 }

@@ -46,7 +46,6 @@ public class VisualizarActivity extends AppCompatActivity {
 //        rvAbastecimento.setAdapter(abastecimentoAdapter);
     }
 
-    @Override
     public void onAbastecimentoSelected(Abastecimento abastecimento) {
         DetailFragment detail = new DetailFragment();
         Bundle bundle = new Bundle();

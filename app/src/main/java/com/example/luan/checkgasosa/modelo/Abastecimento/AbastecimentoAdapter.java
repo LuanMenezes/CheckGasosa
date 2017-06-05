@@ -12,18 +12,16 @@ import java.util.List;
 
 public class AbastecimentoAdapter extends RecyclerView.Adapter<AbastecimentoHolder>{
     private AbastecimentoDao abastecimentoDao = AbastecimentoDao.getInstancia();
-    private List<Abastecimento> listaAbastecimentos = abastecimentoDao.getAll();
     private Context context;
 
-    public AbastecimentoAdapter() {
+    public AbastecimentoAdapter(Context c) {
+        this.context = c;
     }
 
     @Override
     public AbastecimentoHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.holder_card, null);
-        AbastecimentoHolder rcv = new AbastecimentoHolder(layoutView);
-        context = parent.getContext();
-        return rcv;
+        return new AbastecimentoHolder(layoutView);
     }
 
     @Override
@@ -35,6 +33,6 @@ public class AbastecimentoAdapter extends RecyclerView.Adapter<AbastecimentoHold
     @Override
     public int getItemCount() {
 
-        return listaAbastecimentos.size();
+        return abastecimentoDao.getAll(context).size();
     }
 }

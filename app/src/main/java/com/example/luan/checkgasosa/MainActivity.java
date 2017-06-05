@@ -29,13 +29,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        List<Abastecimento> abastecimentos = abastecimentoDao.getAll();
+        List<Abastecimento> abastecimentos = abastecimentoDao.getAll(this.getApplicationContext());
+        Log.d("TAMANHO ABASTECIMENTOS", String.valueOf(abastecimentos.size()));
         tvAutonomia = (TextView) findViewById(R.id.tvAutonomia);
         double autonomia = 0;
 
         if (abastecimentos.size() > 0) {
-            Abastecimento ultimoAbastecimento = abastecimentoDao.get(this.getApplicationContext(),(abastecimentos.size() - 1));
-            Abastecimento primeiroAbastecimento = abastecimentoDao.get(this.getApplicationContext(), 0);
+            Abastecimento ultimoAbastecimento = abastecimentoDao.get(this.getApplicationContext(),(abastecimentos.size()));
+            Abastecimento primeiroAbastecimento = abastecimentoDao.get(this.getApplicationContext(), 1);
             Log.d("DADOS KM ULTIMO ABASTE:", String.valueOf(ultimoAbastecimento.getKmAtual()));
             Log.d("DADOS KM PRIMEIRO ABAS:", String.valueOf(primeiroAbastecimento.getKmAtual()));
             double totalKmPercorridos = ultimoAbastecimento.getKmAtual() - primeiroAbastecimento.getKmAtual();

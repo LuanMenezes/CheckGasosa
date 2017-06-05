@@ -9,9 +9,8 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class BdHelper extends SQLiteOpenHelper {
 
-    private static final int VERSAO = 2;
+    private static final int VERSAO = 1;
     private static final String NOME_DB = "check_gasosa";
-    private static final String TABLE = "check_gasosa";
 
     public BdHelper(Context context) {
 
@@ -20,8 +19,8 @@ public class BdHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE "+ TABLE + "(" +
-            "id integer primary key," +
+        db.execSQL("CREATE TABLE abastecimento(" +
+            "id integer primary key autoincrement," +
             "kmAtual double," +
             "data text," +
             "litros double," +
@@ -33,8 +32,7 @@ public class BdHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS "+ TABLE);
-        onCreate(db);
+
     }
 
     @Override

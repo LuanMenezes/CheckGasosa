@@ -142,8 +142,8 @@ public class CadastrarActivity extends FragmentActivity {
             return false;
         }
 
-        if (abastecimentoDao.getAll().size() > 0) {
-            Abastecimento ultimoAbastecimento = abastecimentoDao.get(v.getContext(),(abastecimentoDao.getAll().size()) - 1);
+        if (abastecimentoDao.getAll(v.getContext()).size() > 0) {
+            Abastecimento ultimoAbastecimento = abastecimentoDao.get(v.getContext(),(abastecimentoDao.getAll(v.getContext()).size()));
             if (ultimoAbastecimento.getKmAtual() > Double.parseDouble(etKmAtual.getText().toString())) {
                 etKmAtual.setError("A Quilometragem atual não pode ser menor do que a última informada (" + String.format("%.1f", ultimoAbastecimento.getKmAtual()) + ")");
                 Log.d("KM ATUAL MENOR ANTERIO:", etKmAtual.getText().toString());
